@@ -36,8 +36,7 @@
 </head>
 
 <body
-    class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient h-screen w-screen overflow-hidden">
-    <div>
+    class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient max-h-screen max-w-screen">
         <header class="px-4 sm:px-10 lg:px-24 py-6 lg:py-10">
             <div class="flex flex-col lg:flex-row justify-between items-center">
                 <!-- Sección del logo -->
@@ -47,7 +46,7 @@
                         alt="Logo" />
                 </div>
                 <!-- Sección de los botones -->
-                <div class="flex flex-wrap lg:flex-nowrap gap-2 lg:gap-4 w-full lg:w-4/6">
+                <div class="flex justify-center flex-wrap lg:flex-nowrap gap-2 lg:gap-4 w-full lg:w-4/6">
                     <button
                         class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
                         <p class="text-white font-sans font-bold text-center text-sm">Home</p>
@@ -74,8 +73,6 @@
         </div>
         <footer>
         </footer>
-    </div>
-
     <script>
         const terminalOutput = document.getElementById('typing-effect');
         const cursor = document.getElementById('cursor');
@@ -96,6 +93,11 @@ victoria@linux:~$ exit
 
         function typeLine() {
             if (lineIndex < lines.length) {
+
+                if (lineIndex === 0) {
+                    terminalOutput.textContent = ""; // Borrar el contenido antes de comenzar el primer bucle
+                }
+
                 const line = lines[lineIndex];
                 let charIndex = 0;
 
@@ -106,7 +108,7 @@ victoria@linux:~$ exit
                     const remainingText = line.slice(prompt.length); // Resto de la línea
 
                     // Imprimir el prompt estático con color verde
-                    terminalOutput.innerHTML += `<span class="text-terminal-green">${promptText}</span>`;
+                    terminalOutput.innerHTML += `<span class="text-terminal-green text-sm lg:text-lg">${promptText}</span>`;
 
                     // Ahora tipeamos el resto de la línea
                     setTimeout(() => {
@@ -114,7 +116,7 @@ victoria@linux:~$ exit
                     }, 1000);
                 } else {
                     // Si la línea no contiene el prompt, tipeamos toda la línea
-                    terminalOutput.innerHTML += `${line}<br>`;
+                    terminalOutput.innerHTML += `<span class="text-sm lg:text-lg">${line}</span><br>`;
                     lineIndex++;
                     setTimeout(typeLine, 1000);
                 }
@@ -129,6 +131,7 @@ victoria@linux:~$ exit
             let charIndex = 0;
 
             const remainingTextSpan = document.createElement("span");
+            remainingTextSpan.classList.add('text-sm', 'lg:text-lg');
             terminalOutput.appendChild(remainingTextSpan); // Agregar el span para el resto del texto
 
             function typeChar() {
