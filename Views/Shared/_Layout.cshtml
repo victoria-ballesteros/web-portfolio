@@ -13,7 +13,6 @@
             background: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
             filter: blur(10px);
-            margin: 50px auto;
         }
 
         .typing-container {
@@ -36,8 +35,11 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient max-h-screen max-w-screen"
+<body
+    class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient min-h-screen w-screen flex flex-col overflow-hidden"
     id="particles-js">
+
+    <!-- Header con espacio fijo -->
     <header class="px-4 sm:px-10 lg:px-24 py-6 lg:py-10">
         <div class="flex flex-col lg:flex-row justify-between items-center">
             <!-- Sección del logo -->
@@ -47,33 +49,33 @@
                     alt="Logo" />
             </div>
             <!-- Sección de los botones -->
-            <div class="flex justify-center flex-wrap lg:flex-nowrap gap-2 lg:gap-4 w-full lg:w-4/6">
-                <a class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+            <div class="text-xs md:text-sm flex justify-center flex-nowrap gap-1 lg:gap-4 w-full lg:w-4/6">
+                <a class="px-4 lg:flex-1 flex items-center justify-center bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
                     asp-controller="Home" asp-action="Index">
-                    <p class="text-white font-sans font-bold text-center text-sm">Home</p>
+                    <p class="text-white font-sans font-bold text-center">Home</p>
                 </a>
-                <a class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+                <a class="px-4 lg:flex-1 flex items-center justify-center bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
                     asp-controller="Home" asp-action="Projects">
-                    <p class="text-white font-sans font-bold text-center text-sm">Projects</p>
+                    <p class="text-white font-sans font-bold text-center">Projects</p>
                 </a>
                 <button
                     class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                    <p class="text-white font-sans font-bold text-center text-sm">Services</p>
+                    <p class="text-white font-sans font-bold text-center">Services</p>
                 </button>
                 <button
                     class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                    <p class="text-white font-sans font-bold text-center text-sm">Contact me</p>
+                    <p class="text-white font-sans font-bold text-center">Contact me</p>
                 </button>
             </div>
         </div>
     </header>
-    <div>
-        <main role="main" class="flex justify-center">
+
+    <!-- Main que ocupa el resto del espacio disponible -->
+    <div class="flex-grow overflow-y-auto justify-center">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
-    <footer>
-    </footer>
     <script>
         const terminalOutput = document.getElementById('typing-effect');
         const cursor = document.getElementById('cursor');
