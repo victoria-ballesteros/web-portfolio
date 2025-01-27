@@ -7,12 +7,12 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/application.styles.css" asp-append-version="true" />
+
     <style>
         .custom-shadow {
             background: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
             filter: blur(10px);
-            margin: 50px auto;
         }
 
         .typing-container {
@@ -36,43 +36,46 @@
 </head>
 
 <body
-    class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient max-h-screen max-w-screen">
-        <header class="px-4 sm:px-10 lg:px-24 py-6 lg:py-10">
-            <div class="flex flex-col lg:flex-row justify-between items-center">
-                <!-- Sección del logo -->
-                <div class="flex items-center gap-2 w-full lg:w-1/6 mb-4 lg:mb-0">
-                    <p class="font-sans text-xl lg:text-2xl text-white">PORTFOLIO</p>
-                    <img src="~/icons/code-symbol.svg" class="h-6 dark:invert dark:brightness-0 dark:contrast-200"
-                        alt="Logo" />
-                </div>
-                <!-- Sección de los botones -->
-                <div class="flex justify-center flex-wrap lg:flex-nowrap gap-2 lg:gap-4 w-full lg:w-4/6">
-                    <button
-                        class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                        <p class="text-white font-sans font-bold text-center text-sm">Home</p>
-                    </button>
-                    <button
-                        class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                        <p class="text-white font-sans font-bold text-center text-sm">Projects</p>
-                    </button>
-                    <button
-                        class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                        <p class="text-white font-sans font-bold text-center text-sm">Services</p>
-                    </button>
-                    <button
-                        class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-                        <p class="text-white font-sans font-bold text-center text-sm">Contact me</p>
-                    </button>
-                </div>
+    class="bg-gradient-to-r from-spotify-electric-purple to-spotify-darkest-gradient min-h-screen w-screen flex flex-col overflow-hidden"
+    id="particles-js">
+
+    <!-- Header con espacio fijo -->
+    <header class="px-4 sm:px-10 lg:px-24 py-6 lg:py-10">
+        <div class="flex flex-col lg:flex-row justify-between items-center">
+            <!-- Sección del logo -->
+            <div class="flex items-center gap-2 w-full lg:w-1/6 mb-4 lg:mb-0">
+                <p class="font-sans text-xl lg:text-2xl text-white">PORTFOLIO</p>
+                <img src="~/icons/code-symbol.svg" class="h-6 dark:invert dark:brightness-0 dark:contrast-200"
+                    alt="Logo" />
             </div>
-        </header>
-        <div>
-            <main role="main" class="flex justify-center">
-                @RenderBody()
-            </main>
+            <!-- Sección de los botones -->
+            <div class="text-xs md:text-sm flex justify-center flex-nowrap gap-1 lg:gap-4 w-full lg:w-4/6">
+                <a class="px-4 lg:flex-1 flex items-center justify-center bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+                    asp-controller="Home" asp-action="Index">
+                    <p class="text-white font-sans font-bold text-center">Home</p>
+                </a>
+                <a class="px-4 lg:flex-1 flex items-center justify-center bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+                    asp-controller="Home" asp-action="Projects">
+                    <p class="text-white font-sans font-bold text-center">Projects</p>
+                </a>
+                <button
+                    class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
+                    <p class="text-white font-sans font-bold text-center">Services</p>
+                </button>
+                <button
+                    class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
+                    <p class="text-white font-sans font-bold text-center">Contact me</p>
+                </button>
+            </div>
         </div>
-        <footer>
-        </footer>
+    </header>
+
+    <!-- Main que ocupa el resto del espacio disponible -->
+    <div class="flex-grow overflow-y-auto justify-center">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
     <script>
         const terminalOutput = document.getElementById('typing-effect');
         const cursor = document.getElementById('cursor');
@@ -108,7 +111,7 @@ victoria@linux:~$ exit
                     const remainingText = line.slice(prompt.length); // Resto de la línea
 
                     // Imprimir el prompt estático con color verde
-                    terminalOutput.innerHTML += `<span class="text-terminal-green text-sm lg:text-lg">${promptText}</span>`;
+                    terminalOutput.innerHTML += `<span class="text-terminal-green font-sans font-bold text-sm lg:text-md">${promptText}</span>`;
 
                     // Ahora tipeamos el resto de la línea
                     setTimeout(() => {
@@ -116,7 +119,7 @@ victoria@linux:~$ exit
                     }, 1000);
                 } else {
                     // Si la línea no contiene el prompt, tipeamos toda la línea
-                    terminalOutput.innerHTML += `<span class="text-sm lg:text-lg">${line}</span><br>`;
+                    terminalOutput.innerHTML += `<span class="text-sm font-sans lg:text-md">${line}</span><br>`;
                     lineIndex++;
                     setTimeout(typeLine, 1000);
                 }
@@ -131,7 +134,7 @@ victoria@linux:~$ exit
             let charIndex = 0;
 
             const remainingTextSpan = document.createElement("span");
-            remainingTextSpan.classList.add('text-sm', 'lg:text-lg');
+            remainingTextSpan.classList.add('text-sm', 'lg:text-md', 'font-sans');
             terminalOutput.appendChild(remainingTextSpan); // Agregar el span para el resto del texto
 
             function typeChar() {
@@ -152,6 +155,72 @@ victoria@linux:~$ exit
         typeLine();
 
     </script>
+
+    <script src="~/js/particles.js"></script>
+
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#7277f1"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 5,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

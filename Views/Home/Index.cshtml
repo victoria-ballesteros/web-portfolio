@@ -2,32 +2,42 @@
     ViewData["Title"] = "Victoria Ballesteros";
 }
 
-<div class="h-full w-full flex flex-col items-center mt-4 lg:mt-0">
-    <div class="absolute h-3/5 lg:w-8/12 w-5/6 w-full flex-col items-center">
-        <div class="bg-dark-gray h-4/5 lg:h-full w-full rounded-md animate-float">
-            <div class="h-auto flex justify-between px-4 lg:px-6 z-10">
-                <!-- Windows tittle /-->
-                <div class="bg-black-background rounded-t-md flex gap-16 mt-4 justify-between items-center px-3 lg:px-3 pt-1 lg:pt-3 lg:gap-24">
-                    <p class="font-sans text-white font-bold text-sm lg:text-lg">Home</p>
-                    <div>
-                        <img src="~/icons/close-window.svg"
-                            class="h-6 dark:invert dark:brightness-0 dark:contrast-200" />
-                    </div>
+<div class="h-full w-full flex flex-col items-center mt-4">
+    <div class="absolute h-3/5 lg:w-8/12 w-5/6 w-full flex-col items-center px-4 lg:px-0">
+        <div class="bg-dark-gray h-4/5 lg:h-full w-full flex flex-col rounded-2xl animate-float">
+            <div class="flex justify-between items-center px-4 py-3 border-b border-light-gray">
+                <div>
+                    <img src="~/icons/plus1.svg" class="h-4" />
                 </div>
+                <p class="font-sans text-white font-bold">welcome:~</p>
                 <div class="flex items-center gap-2">
                     <div class="bg-red-ball rounded-full h-2 w-2 lg:h-3 lg:w-3"></div>
                     <div class="bg-yellow-ball rounded-full h-2 w-2 lg:h-3 lg:w-3"></div>
                     <div class="bg-green-ball rounded-full h-2 w-2 lg:h-3 lg:w-3"></div>
                 </div>
             </div>
-            <div class="h-full bg-black-background rounded-b-md px-6 pt-0 flex">
+            <div class="h-auto flex bg-black-background flex items-center px-1 pt-2 z-10">
+                <!-- Windows tittle /-->
+                <div>
+                    <div class="px-2">
+                        <img src="~/icons/arrow-down.svg" class="h-4 dark:invert dark:brightness-0 dark:contrast-200" />
+                    </div>
+                </div>
+                <div
+                    class="border-t border-r border-l border-light-gray bg-dark-gray rounded-t-md flex justify-center items-center px-16">
+                    <div class="flex justify-end px-2 py-1">
+                        <p class="font-sans text-white text-xs lg:text-sm">HOME</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-full bg-black-background border-t border-light-gray rounded-b-2xl px-6 pt-0 flex">
                 <div class="typing-container flex">
-                    <p id="typing-effect" class="font-sans text-white text-xs md:text-md lg:text-lg">
+                    <p id="typing-effect" class="font-sans text-white">
                     </p>
-                    <span class="cursor"></span> 
+                    <span class="cursor"></span>
                 </div>
             </div>
         </div>
-        <div class="absolute custom-shadow w-full h-1/5 lg:-bottom-40 -bottom-20 z-0"></div>
+        <div class="custom-shadow w-full h-1/5 z-0"></div>
     </div>
 </div>
