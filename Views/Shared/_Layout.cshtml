@@ -48,14 +48,14 @@
             </div>
             <!-- Sección de los botones -->
             <div class="flex justify-center flex-wrap lg:flex-nowrap gap-2 lg:gap-4 w-full lg:w-4/6">
-                <button
-                    class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
+                <a class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+                    asp-controller="Home" asp-action="Index">
                     <p class="text-white font-sans font-bold text-center text-sm">Home</p>
-                </button>
-                <button
-                    class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
+                </a>
+                <a class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
+                    asp-controller="Home" asp-action="Projects">
                     <p class="text-white font-sans font-bold text-center text-sm">Projects</p>
-                </button>
+                </a>
                 <button
                     class="px-4 lg:flex-1 bg-button-blue rounded-full shadow-md py-2 hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
                     <p class="text-white font-sans font-bold text-center text-sm">Services</p>
@@ -109,7 +109,7 @@ victoria@linux:~$ exit
                     const remainingText = line.slice(prompt.length); // Resto de la línea
 
                     // Imprimir el prompt estático con color verde
-                    terminalOutput.innerHTML += `<span class="text-terminal-green text-sm lg:text-lg">${promptText}</span>`;
+                    terminalOutput.innerHTML += `<span class="text-terminal-green font-sans font-bold text-sm lg:text-md">${promptText}</span>`;
 
                     // Ahora tipeamos el resto de la línea
                     setTimeout(() => {
@@ -117,7 +117,7 @@ victoria@linux:~$ exit
                     }, 1000);
                 } else {
                     // Si la línea no contiene el prompt, tipeamos toda la línea
-                    terminalOutput.innerHTML += `<span class="text-sm lg:text-lg">${line}</span><br>`;
+                    terminalOutput.innerHTML += `<span class="text-sm font-sans lg:text-md">${line}</span><br>`;
                     lineIndex++;
                     setTimeout(typeLine, 1000);
                 }
@@ -132,7 +132,7 @@ victoria@linux:~$ exit
             let charIndex = 0;
 
             const remainingTextSpan = document.createElement("span");
-            remainingTextSpan.classList.add('text-sm', 'lg:text-lg');
+            remainingTextSpan.classList.add('text-sm', 'lg:text-md', 'font-sans');
             terminalOutput.appendChild(remainingTextSpan); // Agregar el span para el resto del texto
 
             function typeChar() {

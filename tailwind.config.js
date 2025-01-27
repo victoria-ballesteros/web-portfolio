@@ -6,14 +6,15 @@ module.exports = {
         'dark-blue': '#0F2743',
         'light-blue': '#5B90C4',
         'button-blue': '#7277f1',
-        'dark-gray': '#1C1C1C',
-        'black-background': '#0B0B0B',
+        'dark-gray': '#2d2c2d',
+        'black-background': '#1c1c1d',
         'red-ball': '#E64747',
         'yellow-ball': '#E6E22E',
         'green-ball': '#8FB935',
         'spotify-electric-purple': '#4300ff',
         'spotify-darkest-gradient': '#717371',
-        'terminal-green': '#70e000',
+        'terminal-green': '#26a269',
+        'light-gray': '#555555',
       },
       keyframes: {
         float: {
